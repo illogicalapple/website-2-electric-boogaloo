@@ -1,0 +1,12 @@
+{
+  "name": "website",
+  "private": false,
+  "source": "src/index.pug",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0"
+  }
+}
