@@ -1,0 +1,42 @@
+$secondary: #007fff;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: Lato, sans-serif;
+  margin: 0px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+h1, h2 {
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  line-height: initial;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+@mixin blunderline {
+  content: "";
+	display: inline-block;
+	margin: auto;
+	height: 0.5em;
+	background-color: $secondary;
+	width: calc(100% - 30px);
+	position: absolute;
+	left: 15px;
+	z-index: -1;
+  top: 0.75em;
+}
+
+.blunderline {
+  position: relative;
+  &::after {
+    @include blunderline();
+  }
+}

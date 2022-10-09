@@ -1,0 +1,195 @@
+-
+  var pages = [
+    {
+      url: "/true-facts",
+      title: "true facts",
+      desc: "true facts about everything"
+    },
+    {
+      url: "/scribble",
+      title: "scribble",
+      desc: "ruins your drawings"
+    },
+    {
+      url: "/clicker",
+      title: "clicker game",
+      desc: "a boring clicker game (sort of)",
+      disabled: true
+    }
+  ];
+
+nav
+  script.
+    var menuOpen = false;
+    var toggleMenu = stuff => { menuOpen = stuff; document.querySelector("div.menu").dataset.open = stuff ? "bob" : "not bob" }
+  style(scoped type="text/scss").
+    nav {
+      margin: 0px;
+      position: fixed;
+      z-index: 1;
+      left: 0px;
+      top: 0px;
+      height: 85px;
+      background-color: white;
+      border-bottom: 1px solid lightgray;
+      width: 100vw;
+      a {
+        text-decoration: none;
+      }
+      div.options-left {
+        position: absolute;
+        left: 10px;
+        width: 50px;
+        height: 100%;
+        & > span {
+          position: absolute;
+          left: 0px;
+          padding: 0px 20px;
+          font-weight: bold;
+          font-family: Poppins, sans-serif;
+          font-size: 21px;
+          top: 50%;
+          transform: translateY(-50%);
+          float: left;
+          & > span {
+            color: #007fff;
+          }
+        }
+      }
+      * {
+        margin: 0px;
+      }
+      div.options-right {
+        position: absolute;
+        right: 10px;
+        top: 0px;
+        height: 100%;
+        a.option {
+          display: table-cell;
+          padding: 0px 20px;
+          /* cursor: pointer; */
+          font-family: Poppins, sans-serif;
+          font-size: 21px;
+          top: 50%;
+          transform: translateY(-50%);
+          float: right;
+          z-index: 2;
+        }
+        div.menu {
+          text-align: left;
+          overflow-y: auto;
+          overflow-x: hidden;
+          background-color: white;
+          position: absolute;
+          right: 20px;
+          top: 115px;
+          transition: 0.3s;
+          transition-property: height, padding, border;
+          padding: 5px 10px;
+          text-align: center;
+          border: 0px solid lightgray;
+          background-clip: border-box;
+          width: 15rem;
+          height: 0px;
+          pointer-events: none;
+          -ms-overflow-style: none;
+          scrollbar-color: transparent transparent;
+          scrollbar-width: none;
+          padding: 0rem 3rem;
+          p {
+            text-align: left;
+            color: black;
+            font-size: 1rem;
+          }
+          h2 {
+            text-align: left;
+            margin-bottom: 0.5rem;
+            color: #007fff;
+          }
+          &[data-open="bob"] {
+            top: 115px;
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            pointer-events: all;
+            height: 20rem;
+            border: 1px solid lightgray;
+          }
+          a {
+            padding: 5px;
+            display: inline-block;
+            width: calc(100% + 20px);
+            position: relative;
+            right: 10px;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+          &::-webkit-scrollbar {
+            width: 0px;
+            display: none;
+          }
+          &::-moz-scrollbar {
+            width: 0px;
+            display: none;
+          }
+        }
+      }
+      .option {
+        position: relative;
+        color: black;
+        text-decoration: none;
+        height: 100%;
+        &.stuff-option {
+          cursor: default;
+        }
+        & > span {
+          top: 50%;
+          display: inline-block;
+          transform: translateY(-50%);
+          position: relative;
+          &::after {
+            content: "";
+            display: block;
+            margin: auto;
+            margin-top: -0.65em;
+            height: 0.5em;
+            background-color: #007fff;
+            width: 0px;
+            position: absolute;
+            left: 5px;
+            z-index: -1;
+            transition: 0.3s;
+          }
+        }
+        &:hover[class][class] > span::after {
+          width: calc(100% - 10px);
+        }
+      }
+      .stuff-option:hover::after {
+        content: "hitbox hitbox hitbox";
+        width: 15rem;
+        display: inline-block;
+        position: absolute;
+        height: 30px;
+        top: 85px;
+        right: 20px;
+        opacity: 0;
+      }
+    }
+
+  div.options-left 
+    span.
+      illogical#[span apple]
+  div.options-right 
+    a.option.stuff-option(href="javascript:void(0)" onmouseover="toggleMenu(true)" onmouseleave="toggleMenu(false)")
+      span stuff i made
+    div.menu(onmouseover="toggleMenu(true)" onmouseleave="toggleMenu(false)")
+      each page, index in pages
+        span
+          a(href=page.url) 
+            h2= page.title 
+            p= page.desc
+            if index < pages.length - 1
+              br
+    a.option(href="/") 
+      span home

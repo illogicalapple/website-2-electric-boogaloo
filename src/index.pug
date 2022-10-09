@@ -1,2 +1,15 @@
 doctype html
-html
+html(lang="en")
+  head
+    include /includes/head.pug
+    title illogicalapple
+    meta(name="description", content="my website and where i put cool stuff")
+    link(rel="stylesheet", href="css/home.scss")
+  body 
+    include /includes/navbar.pug
+    main
+      img.apple(src="assets/home/apples.png" alt="apple image")
+      div.text
+        h1.
+          hi, #[span.blunderline it's me.]
+        p beware the evil kumquats

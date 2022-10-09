@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  font-family: Lato, sans-serif;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+h1, h2 {
+  font-family: Poppins, sans-serif;
+  line-height: initial;
+  margin: 0;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+.blunderline {
+  position: relative;
+}
+
+.blunderline:after {
+  content: "";
+  height: .5em;
+  width: calc(100% - 30px);
+  z-index: -1;
+  background-color: #007fff;
+  margin: auto;
+  display: inline-block;
+  position: absolute;
+  top: .75em;
+  left: 15px;
+}
+
+/*# sourceMappingURL=index.4657834a.css.map */
